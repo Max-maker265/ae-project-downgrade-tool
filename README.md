@@ -1,25 +1,33 @@
-# AE Project Downgrade Tool
+# AE 工程降级工具
 
-AE Project Downgrade Tool is a desktop utility for converting Adobe After Effects project files to lower target versions.
+这是一个用于转换 Adobe After Effects 工程文件版本的桌面工具，可以把较高版本的 AE 工程尝试转换为较低版本，方便在旧版 AE 中打开。
 
-The GitHub version is free to use and does not require an activation code.
+GitHub 版本可直接使用，不需要账号、联网服务或激活码。
 
-## Features
+## 功能特点
 
-- Convert AE project files for compatibility with lower AE versions
-- Local desktop workflow
-- Electron-based interface
-- No account, activation code, or network service required
+- 支持选择 `.aep`、`.aepx`、`.ffx` 文件
+- 支持选择目标 AE 年份 / 版本
+- 自动生成降级后的工程文件
+- 本地运行，不上传工程文件
+- Electron 桌面界面
+- 免费开源，无激活限制
 
-## Source
+## 使用提醒
 
-The Electron source code is in:
+降级前请先备份原工程文件。
+
+跨多个 AE 大版本降级时，部分新版本效果、表达式、插件参数或工程特性，可能无法在旧版本 AE 中完全兼容。这个工具适合用于工程版本兼容处理，但不能保证所有复杂工程都能 100% 无损降级。
+
+## 源码目录
+
+Electron 源码位于：
 
 ```text
 src/electron
 ```
 
-## Development
+## 本地开发
 
 ```bash
 cd src/electron
@@ -27,22 +35,29 @@ npm install
 npm start
 ```
 
-## Build
+## 打包构建
 
 ```bash
 cd src/electron
 npm run build
 ```
 
-## Release Assets
+## 发布文件
 
-Large binary files are not committed to the repository. Upload installers through GitHub Releases instead:
+安装包文件体积较大，不建议直接提交到仓库。请通过 GitHub Releases 发布：
 
-- Windows app: `release-assets/windows/AE工程降级工具.exe`
-- macOS app: `release-assets/AE工程降级工具-1.0.0-arm64.dmg`
+- Windows 版：`AE工程降级工具.exe`
+- macOS 版：`AE工程降级工具-1.0.0-arm64.dmg`
 
-## Notes
+## 不要提交的内容
 
-This repository should not include `node_modules`, generated `dist` folders, or large installer binaries in normal commits.
+仓库中不应提交：
 
-Please back up the original AE project before conversion. Some effects, expressions, or features from newer AE versions may not be fully compatible with older target versions.
+- `node_modules`
+- `dist`
+- 大体积安装包
+- 临时日志文件
+
+## 免责声明
+
+本工具仅用于个人学习、工程备份和版本兼容处理。使用前请自行备份原始工程文件，因版本转换造成的兼容问题或文件损坏风险由使用者自行承担。
