@@ -1,0 +1,40 @@
+{
+  "name": "ae-downgrade-mac",
+  "version": "1.0.0",
+  "description": "AE downgrade tool for macOS",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac dmg"
+  },
+  "build": {
+    "appId": "com.ae.downgrade.mac",
+    "productName": "AE工程降级工具",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "converter.js"
+    ],
+    "asar": true,
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "sign": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  }
+}
