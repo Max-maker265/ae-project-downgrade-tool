@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AE工程降级工具</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="work">
+      <div class="titlebar">
+        <div>
+          <h1>AE工程降级工具</h1>
+          <p>选择工程、目标版本和保存位置后即可转换。</p>
+        </div>
+        <div id="badge" class="badge">读取中</div>
+      </div>
+
+      <div class="field">
+        <label>AE 工程文件</label>
+        <div class="row">
+          <input id="inputPath" placeholder="请选择 .aep / .aepx / .ffx 文件" readonly>
+          <button id="pickInput">选择</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>转换后的保存路径</label>
+        <div class="row">
+          <input id="outputPath" placeholder="请选择输出文件保存位置" readonly>
+          <button id="pickOutput">选择</button>
+        </div>
+      </div>
+
+      <div class="field compact">
+        <label>想要修改到的 AE 年份 / 版本</label>
+        <select id="targetVer"></select>
+      </div>
+
+      <button id="convert" class="primary">开始转换</button>
+
+      <div id="message" class="message">准备就绪。</div>
+    </section>
+
+    <aside class="side">
+      <section class="panel note">
+        <h2>使用提醒</h2>
+        <p>降级前请备份原工程。跨多个 AE 大版本降级时，部分新版本效果、表达式或功能可能无法在旧版本中完全兼容。</p>
+      </section>
+
+      <section class="panel note">
+        <h2>开源说明</h2>
+        <p>GitHub 版本可直接使用，不需要激活码。欢迎用于学习、备份和个人工作流。</p>
+      </section>
+    </aside>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
